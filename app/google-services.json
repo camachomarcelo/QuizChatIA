@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "202254235362",
+    "firebase_url": "https://quizchatia.firebaseio.com",
+    "project_id": "quizchatia",
+    "storage_bucket": "quizchatia.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:202254235362:android:d598a99daf68dd5c",
+        "android_client_info": {
+          "package_name": "com.dranser.quizchatia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "202254235362-kkcc9e4u6ru68eansrip0mjgqp5i4j1a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dranser.quizchatia",
+            "certificate_hash": "e88ac2c266e40605f2df19c6b74e0ad89e10ce4f"
+          }
+        },
+        {
+          "client_id": "202254235362-cf86cobe143g50iolu1ujhphcu88ofn9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDexP2o3YhjKLBDrIn_f-Iw8kfyPx4O8Cw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "202254235362-cf86cobe143g50iolu1ujhphcu88ofn9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
