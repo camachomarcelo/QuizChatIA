@@ -33,9 +33,6 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference usuarios;
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -133,7 +130,8 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.setPositiveButton("SI", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                final Usuario usuario = new Usuario(edtNuevoUsuario.getText().toString(),
+
+                 final Usuario usuario = new Usuario(edtNuevoUsuario.getText().toString(),
                         edtNuevaContraseña.getText().toString(),
                         edtNuevoEmail.getText().toString());
 
