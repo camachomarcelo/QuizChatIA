@@ -48,7 +48,7 @@
                       />
 
                   <com.rengwuxian.materialedittext.MaterialEditText
-                      android:id="@+id/edtContraseña"
+                      android:id="@+id/edtContrasena"
                       android:hint="Contraseña"
                       android:textColorHint="@color/colorPrimary"
                       android:textColor="@color/colorPrimary"

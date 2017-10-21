@@ -24,8 +24,8 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    MaterialEditText edtNuevoUsuario, edtNuevaContraseña, edtNuevoEmail; //Para el registro
-    MaterialEditText edtUsuario, edtContraseña; //Para iniciar sesión
+    MaterialEditText edtNuevoUsuario, edtNuevaContrasena, edtNuevoEmail; //Para el registro
+    MaterialEditText edtUsuario, edtContrasena; //Para iniciar sesión
 
     Button btnRegistro, btnIniciarSesion;
 
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         usuarios = database.getReference("Usuarios");
 
         edtUsuario = (MaterialEditText)findViewById(R.id.edtUsuario);
-        edtContraseña = (MaterialEditText)findViewById(R.id.edtContraseña);
+        edtContrasena = (MaterialEditText)findViewById(R.id.edtContrasena);
 
         btnRegistro = (Button)findViewById(R.id.btn_registro);
         btnIniciarSesion = (Button)findViewById(R.id.btn_iniciar_sesion);
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                iniciarSesion(edtUsuario.getText().toString(),edtContraseña.getText().toString());
+                iniciarSesion(edtUsuario.getText().toString(),edtContrasena.getText().toString());
             }
         });
 
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                     if (!user.isEmpty())
                     {
                         Usuario login = dataSnapshot.child(user).getValue(Usuario.class);
-                        if (login.getContraseña().equals(pwd))
+                        if (login.getContrasena().equals(pwd))
                             Toast.makeText(MainActivity.this, "Inicio de sesión correcto", Toast.LENGTH_SHORT).show();
                         else
                             Toast.makeText(MainActivity.this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show();
@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
 
         edtNuevoUsuario = (MaterialEditText)registro_layout.findViewById(R.id.edtNuevoNombreUsuario);
         edtNuevoEmail = (MaterialEditText)registro_layout.findViewById(R.id.edtNuevoEmail);
-        edtNuevaContraseña = (MaterialEditText)registro_layout.findViewById(R.id.edtNuevaContraseña);
+        edtNuevaContrasena = (MaterialEditText)registro_layout.findViewById(R.id.edtNuevaContrasena);
 
         alertDialog.setView(registro_layout);
         alertDialog.setIcon(R.drawable.ic_account_circle_black_24dp);
@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 final Usuario usuario = new Usuario(edtNuevoUsuario.getText().toString(),
-                        edtNuevaContraseña.getText().toString(),
+                        edtNuevaContrasena.getText().toString(),
                         edtNuevoEmail.getText().toString());
 
                 usuarios.addListenerForSingleValueEvent(new ValueEventListener() {
