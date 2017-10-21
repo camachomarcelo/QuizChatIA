@@ -6,17 +6,18 @@ package com.dranser.quizchatia.Modelo;
 
 public class Usuario {
     private String nombreUsuario;
-    private String email;
     private String contraseña;
+    private String email;
+
 
     public Usuario() {
 
     }
 
-    public Usuario(String nombreUsuario, String email, String contraseña) {
+    public Usuario(String nombreUsuario, String contraseña, String email) {
         this.nombreUsuario = nombreUsuario;
-        this.email = email;
         this.contraseña = contraseña;
+        this.email = email;
     }
 
     public String getNombreUsuario() {
