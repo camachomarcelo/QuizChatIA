@@ -120,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.setView(registro_layout);
         alertDialog.setIcon(R.drawable.ic_account_circle_black_24dp);
 
+
         alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
