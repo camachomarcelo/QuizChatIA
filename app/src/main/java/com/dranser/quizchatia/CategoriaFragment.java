@@ -1,6 +1,7 @@
 package com.dranser.quizchatia;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.ColorSpace;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.dranser.quizchatia.Common.Common;
 import com.dranser.quizchatia.Interface.ItemClickListener;
 import com.dranser.quizchatia.Modelo.Categoria;
 import com.dranser.quizchatia.ViewHolder.CategoriaViewHolder;
@@ -72,7 +74,7 @@ public class CategoriaFragment extends Fragment {
                 categorias
         ) {
             @Override
-            protected void populateViewHolder(CategoriaViewHolder viewHolder, final Categoria model, int position) {
+            protected void populateViewHolder(CategoriaViewHolder viewHolder, final Categoria model, final int position) {
                 viewHolder.categoria_nombre.setText(model.getNombre());
                 Picasso.with(getActivity())
                         .load(model.getImagen())
@@ -81,7 +83,11 @@ public class CategoriaFragment extends Fragment {
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int posicion, boolean isLongClick) {
-                        Toast.makeText(getActivity(), String.format("%s|%s", adapter.getRef(posicion).getKey(), model.getNombre()), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getActivity(), String.format("%s|%s", adapter.getRef(posicion).getKey(), model.getNombre()), Toast.LENGTH_SHORT).show();
+                        Intent startGame = new Intent(getActivity(),Start.class);
+                        Common.categoriaID = adapter.getRef(position).getKey();
+                        startActivity(startGame);
+
                     }
                 });
             }
