@@ -23,7 +23,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Inicio" />
-        <activity android:name=".Start"></activity>
+        <activity android:name=".Start" />
+        <activity android:name=".Jugando" />
+        <activity android:name=".Hecho"></activity>
     </application>
 
 </manifest>

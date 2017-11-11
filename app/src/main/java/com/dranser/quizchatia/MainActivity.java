@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.dranser.quizchatia.Common.Common;
 import com.dranser.quizchatia.Modelo.Usuario;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -88,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
                         if (login.getContraseña().equals(pwd))
                         {
                             Intent inicioActivity = new Intent(MainActivity.this, Inicio.class);
+                            Common.usuarioActual = login;
                             startActivity(inicioActivity);
                             finish();
                         }
