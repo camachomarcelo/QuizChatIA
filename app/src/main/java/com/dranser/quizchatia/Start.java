@@ -51,7 +51,7 @@ public class Start extends AppCompatActivity {
         if (Common.preguntaList.size() > 0)
             Common.preguntaList.clear();
 
-        preguntas.orderByChild("categoriaId").equalTo(categoriaID)
+        preguntas.orderByChild("CategoriaID").equalTo(categoriaID)
         .addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
