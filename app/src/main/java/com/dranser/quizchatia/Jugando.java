@@ -45,6 +45,7 @@ public class Jugando extends AppCompatActivity implements View.OnClickListener{
         txtPuntuacion = (TextView)findViewById(R.id.txtScore);
         txtPreguntaNum = (TextView)findViewById(R.id.txtTotalQuestion);
         pregunta_text = (TextView)findViewById(R.id.pregunta_texto);
+        pregunta_imagen = (ImageView)findViewById(R.id.pregunta_imagen);
 
         progressBar = (ProgressBar)findViewById(R.id.progressbar);
 
@@ -114,8 +115,9 @@ public class Jugando extends AppCompatActivity implements View.OnClickListener{
             {
                 pregunta_text.setText(Common.preguntaList.get(index).getPregunta());
 
-                pregunta_imagen.setVisibility(View.VISIBLE);
-                pregunta_text.setVisibility(View.INVISIBLE);
+                //Si la pregunta es texto, definimos la imagen a invisible
+                pregunta_imagen.setVisibility(View.INVISIBLE);
+                pregunta_text.setVisibility(View.VISIBLE);
             }
 
             btnA.setText(Common.preguntaList.get(index).getRespuestaA());
@@ -162,6 +164,6 @@ public class Jugando extends AppCompatActivity implements View.OnClickListener{
                 mostrarPregunta(++index);
             }
         };
-        mostrarPregunta(++index);
+        mostrarPregunta(index);
     }
 }
