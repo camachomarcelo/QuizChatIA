@@ -15,5 +15,7 @@ public class Common {
     public static Usuario usuarioActual;
     public static List<Pregunta> preguntaList = new ArrayList<>();
 
+    public static final String STR_PUSH = "pushNotification";
+
 
 }
