@@ -34,7 +34,7 @@ public class RankingFragment extends Fragment {
     FirebaseRecyclerAdapter<Ranking,RankingViewHolder> adapter;
 
     FirebaseDatabase database;
-    DatabaseReference questionScore, rankingTbl;
+    DatabaseReference preguntaPuntuacion, rankingTbl;
 
     int sum = 0;
 
@@ -48,7 +48,7 @@ public class RankingFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         database = FirebaseDatabase.getInstance();
-        questionScore = database.getReference("Question_Score");
+        preguntaPuntuacion = database.getReference("Pregunta_Puntuacion");
         rankingTbl = database.getReference("Ranking");
     }
 
@@ -67,11 +67,11 @@ public class RankingFragment extends Fragment {
         layoutManager.setStackFromEnd(true);
         rankingList.setLayoutManager(layoutManager);
 
-        updateScore(Common.usuarioActual.getNombreUsuario(), new RankingCallBack<Ranking>() {
+        actualizarPuntuacion(Common.usuarioActual.getNombreUsuario(), new RankingCallBack<Ranking>() {
             @Override
             public void callBack(Ranking ranking) {
                 //Actualizar a la tabla de ranking
-                rankingTbl.child(ranking.getUserName())
+                rankingTbl.child(ranking.getNombreUsuario())
                         .setValue(ranking);
                 //showRanking(); //Ordenamos la tabla de ranking y mostramos el resultado
             }
@@ -82,13 +82,13 @@ public class RankingFragment extends Fragment {
                 Ranking.class,
                 R.layout.layout_ranking,
                 RankingViewHolder.class,
-                rankingTbl.orderByChild("score")
+                rankingTbl.orderByChild("puntuacion")
         ) {
             @Override
             protected void populateViewHolder(RankingViewHolder viewHolder, Ranking model, int position) {
 
-                viewHolder.txt_nombre.setText(model.getUserName());
-                viewHolder.txt_puntos.setText(String.valueOf(model.getScore()));
+                viewHolder.txt_nombre.setText(model.getNombreUsuario());
+                viewHolder.txt_puntos.setText(String.valueOf(model.getPuntuacion()));
 
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
@@ -106,11 +106,8 @@ public class RankingFragment extends Fragment {
         return myFragment;
     }
 
-
-
-
-    private void updateScore(final String nombreUsuario, final RankingCallBack<Ranking> callback) {
-        questionScore.orderByChild("user").equalTo(nombreUsuario)
+    private void actualizarPuntuacion(final String nombreUsuario, final RankingCallBack<Ranking> callback) {
+        preguntaPuntuacion.orderByChild("usuario").equalTo(nombreUsuario)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {

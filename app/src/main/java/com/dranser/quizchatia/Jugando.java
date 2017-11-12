@@ -42,7 +42,7 @@ public class Jugando extends AppCompatActivity implements View.OnClickListener{
 
         //Views
 
-        txtPuntuacion = (TextView)findViewById(R.id.txtScore);
+        txtPuntuacion = (TextView)findViewById(R.id.txtPuntos);
         txtPreguntaNum = (TextView)findViewById(R.id.txtTotalQuestion);
         pregunta_text = (TextView)findViewById(R.id.pregunta_texto);
         pregunta_imagen = (ImageView)findViewById(R.id.pregunta_imagen);

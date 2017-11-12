@@ -1,6 +1,8 @@
 package com.dranser.quizchatia;
 
+import android.app.AlarmManager;
 import android.app.AlertDialog;
+import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +17,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.dranser.quizchatia.BroadcastReceiver.AlarmReceiver;
 import com.dranser.quizchatia.Common.Common;
 import com.dranser.quizchatia.Modelo.Usuario;
 import com.google.firebase.database.DataSnapshot;
@@ -23,6 +26,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rengwuxian.materialedittext.MaterialEditText;
+
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        registrarAlarma();
 
         //Firebase
         database = FirebaseDatabase.getInstance();
@@ -75,6 +82,18 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    private void registrarAlarma() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY,12); //hora 9
+        calendar.set(Calendar.MINUTE,12); //minuto 28
+        calendar.set(Calendar.SECOND,0); //segundo 0
+
+        Intent intent = new Intent(MainActivity.this, AlarmReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(MainActivity.this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager am = (AlarmManager)this.getSystemService(this.ALARM_SERVICE);
+        am.setRepeating(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),AlarmManager.INTERVAL_DAY,pendingIntent);
     }
 
     private void iniciarSesion(final String user, final String pwd) {

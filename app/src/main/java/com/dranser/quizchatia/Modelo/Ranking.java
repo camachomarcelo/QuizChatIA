@@ -5,30 +5,30 @@ package com.dranser.quizchatia.Modelo;
  */
 
 public class Ranking {
-    private String userName;
-    private long score;
+    private String nombreUsuario;
+    private long puntuacion;
 
     public Ranking() {
     }
 
-    public Ranking(String userName, long score) {
-        this.userName = userName;
-        this.score = score;
+    public Ranking(String nombreUsuario, long puntuacion) {
+        this.nombreUsuario = nombreUsuario;
+        this.puntuacion = puntuacion;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getNombreUsuario() {
+        return nombreUsuario;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
 
-    public long getScore() {
-        return score;
+    public long getPuntuacion() {
+        return puntuacion;
     }
 
-    public void setScore(long score) {
-        this.score = score;
+    public void setPuntuacion(long puntuacion) {
+        this.puntuacion = puntuacion;
     }
 }
