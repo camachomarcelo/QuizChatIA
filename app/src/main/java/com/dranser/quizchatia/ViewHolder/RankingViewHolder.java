@@ -13,14 +13,14 @@ import com.dranser.quizchatia.R;
 
 public class RankingViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-    public TextView txt_nombre,txt_puntos;
+    public TextView txt_nombre,txt_puntuacion;
 
     private ItemClickListener itemClickListener;
 
     public RankingViewHolder(View itemView) {
         super(itemView);
         txt_nombre = (TextView)itemView.findViewById(R.id.txt_nombre);
-        txt_puntos = (TextView)itemView.findViewById(R.id.txt_puntos);
+        txt_puntuacion = (TextView)itemView.findViewById(R.id.txt_puntuacion);
 
         itemView.setOnClickListener(this);
     }

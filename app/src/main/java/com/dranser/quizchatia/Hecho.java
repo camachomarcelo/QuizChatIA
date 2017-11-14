@@ -63,7 +63,9 @@ public class Hecho extends AppCompatActivity {
             pregunta_puntuacion.child(String.format("%s_%s", Common.usuarioActual.getNombreUsuario(),Common.categoriaID))
                     .setValue(new PreguntaPuntuacion(String.format("%s_%s", Common.usuarioActual.getNombreUsuario(),Common.categoriaID),
                             Common.usuarioActual.getNombreUsuario(),
-                            String.valueOf(puntuacion)));
+                            String.valueOf(puntuacion),
+                            Common.categoriaID,
+                            Common.categoriaNombre));
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.dranser.quizchatia;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -85,15 +86,17 @@ public class RankingFragment extends Fragment {
                 rankingTbl.orderByChild("puntuacion")
         ) {
             @Override
-            protected void populateViewHolder(RankingViewHolder viewHolder, Ranking model, int position) {
+            protected void populateViewHolder(RankingViewHolder viewHolder, final Ranking model, int position) {
 
                 viewHolder.txt_nombre.setText(model.getNombreUsuario());
-                viewHolder.txt_puntos.setText(String.valueOf(model.getPuntuacion()));
+                viewHolder.txt_puntuacion.setText(String.valueOf(model.getPuntuacion()));
 
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int posicion, boolean isLongClick) {
-
+                        Intent puntuacionDetalles = new Intent(getActivity(),PuntuacionDetalles.class);
+                        puntuacionDetalles.putExtra("viewUser",model.getNombreUsuario());
+                        startActivity(puntuacionDetalles);
                     }
                 });
 

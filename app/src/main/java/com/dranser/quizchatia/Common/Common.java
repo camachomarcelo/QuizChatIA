@@ -11,7 +11,7 @@ import java.util.List;
  */
 
 public class Common {
-    public static String categoriaID;
+    public static String categoriaID, categoriaNombre;
     public static Usuario usuarioActual;
     public static List<Pregunta> preguntaList = new ArrayList<>();
 
