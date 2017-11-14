@@ -17,8 +17,8 @@ import com.squareup.picasso.Picasso;
 
 public class Jugando extends AppCompatActivity implements View.OnClickListener{
 
-    final static long INTERVAL = 1000; // 1 seg
-    final static long TIMEOUT = 7000; // 7 seg
+    final static long INTERVAL = 1000; // 1 segundo
+    final static long TIMEOUT = 7000; // 7 segundos por pregunta para responder
     int progressValue = 0;
 
     CountDownTimer mCountDown;
@@ -42,7 +42,7 @@ public class Jugando extends AppCompatActivity implements View.OnClickListener{
 
         //Views
 
-        txtPuntuacion = (TextView)findViewById(R.id.txtPuntos);
+        txtPuntuacion = (TextView)findViewById(R.id.txtPuntuacion);
         txtPreguntaNum = (TextView)findViewById(R.id.txtTotalQuestion);
         pregunta_text = (TextView)findViewById(R.id.pregunta_texto);
         pregunta_imagen = (ImageView)findViewById(R.id.pregunta_imagen);
